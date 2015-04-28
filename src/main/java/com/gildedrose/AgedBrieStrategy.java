@@ -6,6 +6,9 @@ package com.gildedrose;
 public class AgedBrieStrategy implements ItemStrategy{
     @Override
     public void update(Item item) {
-        item.sellIn = item.sellIn - 1;
+
+        item.sellIn = updateSellIn(item.sellIn);
+
+        item.quality = increaseQuality(item.quality);
     }
 }

@@ -12,6 +12,8 @@ public class Strategy {
                 return new SulfurasStrategy();
             case "Aged Brie":
                 return new AgedBrieStrategy();
+            case "Conjured":
+                return new ConjuredStrategy();
             default:
                 return new DefaultStrategy();
         }

@@ -6,19 +6,19 @@ package com.gildedrose;
 public class BackstageStrategy  implements ItemStrategy{
     @Override
     public void update(Item item) {
+        item.quality = increaseQuality(item.quality);
 
-        item.sellIn = item.sellIn - 1;
-            if (item.sellIn < 11) {
-                if (item.quality < 50) {
-                    item.quality = item.quality + 1;
-                }
-            }
+        item.sellIn = updateSellIn(item.sellIn);
+        if (item.sellIn < 11) {
+            item.quality = increaseQuality(item.quality);
+        }
 
-            if (item.sellIn < 6) {
-                if (item.quality < 50) {
-                    item.quality = item.quality + 1;
-                }
-            }
+        if (item.sellIn < 6) {
+            item.quality = increaseQuality(item.quality);
+        }
+        if(item.sellIn < 0){
+            item.quality = 0;
+        }
 
     }
 }

@@ -37,4 +37,12 @@ public class StrategyTest {
 
         assertTrue("is default strategy", strategy instanceof BackstageStrategy);
     }
+
+    @Test
+    public void conjuredItemReturnsConjuredStrategy() {
+        Item item = new Item("Conjured", 20, 40);
+        ItemStrategy strategy = Strategy.detect(item);
+
+        assertTrue("is default strategy", strategy instanceof ConjuredStrategy);
+    }
 }
